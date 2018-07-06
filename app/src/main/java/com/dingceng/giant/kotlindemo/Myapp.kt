@@ -1,6 +1,7 @@
 package com.dingceng.giant.kotlindemo
 
 import android.app.Application
+import com.blankj.utilcode.util.Utils
 import com.dingceng.giant.kotlindemo.Event.ErrorEvent
 import com.dingceng.giant.kotlindemo.Util.ToastUtil
 import org.greenrobot.eventbus.EventBus
@@ -12,6 +13,7 @@ class Myapp() : Application() {
     override fun onCreate() {
         super.onCreate()
         EventBus.getDefault().register(this)
+        Utils.init(this)
     }
 
     override fun onTerminate() {

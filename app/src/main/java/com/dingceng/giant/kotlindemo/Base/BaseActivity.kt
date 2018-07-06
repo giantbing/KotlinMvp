@@ -5,10 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import com.example.administrator.pyx.service.AppBroadcastServe.NetType.NET_BROADCAST
 import com.example.administrator.pyx.service.AppBroadcastServe.NetType.NET_KEY
+
 
 abstract class BaseActivity : AppCompatActivity() {
     var mContext: AppCompatActivity? = null
@@ -20,6 +20,7 @@ abstract class BaseActivity : AppCompatActivity() {
         mContext = this
         setNetIncident()
         onStartActivity(savedInstanceState)
+
     }
 
     fun getContext(): AppCompatActivity {
@@ -45,7 +46,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-    protected abstract  fun onStartActivity(bundle: Bundle?)
+    protected abstract fun onStartActivity(bundle: Bundle?)
 
 
     private fun setNetIncident() {
@@ -71,6 +72,7 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onDestroy()
         unregisterReceiver(broadcastReceiver)
     }
+
 
 
     protected open fun networkStateHave() {

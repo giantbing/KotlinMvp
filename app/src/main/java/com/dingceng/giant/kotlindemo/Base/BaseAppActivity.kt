@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import com.blankj.utilcode.util.BarUtils
 import org.greenrobot.eventbus.EventBus
 
 abstract class BaseAppActivity: BaseActivity() {
@@ -44,13 +45,14 @@ abstract class BaseAppActivity: BaseActivity() {
         super.onDestroy()
         closeActivityEventBus()
     }
-
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            BarUtils.setStatusBarAlpha(this,0)
+        }
+    }
 
     private fun setTitleColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = resources.getColor(android.R.color.white)
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        }
+        BarUtils.setStatusBarAlpha(this,0)
     }
 }

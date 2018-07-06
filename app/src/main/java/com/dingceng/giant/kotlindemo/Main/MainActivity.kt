@@ -1,10 +1,12 @@
 package com.dingceng.giant.kotlindemo.Main
 
 import android.os.Bundle
+import com.blankj.utilcode.util.ActivityUtils
 import com.dingceng.giant.kotlindemo.Base.BaseAppActivity
 import com.dingceng.giant.kotlindemo.Event.ErrorEvent
 import com.dingceng.giant.kotlindemo.Http.Bean.WeatherBean
 import com.dingceng.giant.kotlindemo.R
+import com.dingceng.giant.kotlindemo.Splash.SplashActivity
 import com.dingceng.giant.kotlindemo.Util.LogUtil
 import com.dingceng.giant.kotlindemo.Util.ToastUtil
 import com.dingceng.giant.kotlindemo.View.WechatDialog
@@ -32,9 +34,6 @@ class MainActivity : BaseAppActivity(), MainView {
     }
 
     override fun clickListener() {
-    }
-
-     fun initView() {
         tvShowModel.setOnClickListener {
             val wechatDialog = WechatDialog()
             val bundle = Bundle()
@@ -42,9 +41,12 @@ class MainActivity : BaseAppActivity(), MainView {
             wechatDialog.arguments = bundle
             wechatDialog.show(supportFragmentManager, "WechatDialog")
             EventBus.getDefault().post(ErrorEvent("asdasdsdfg", 3))
+           // ActivityUtils.startActivity(SplashActivity::class.java)
         }
-        LogUtil.d("asdsa")
-        EventBus.getDefault().post(ErrorEvent("2323", 3))
+    }
+
+     fun initView() {
+
     }
 
 }

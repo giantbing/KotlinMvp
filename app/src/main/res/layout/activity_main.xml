@@ -9,7 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@mipmap/back"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:fitsSystemWindows="false"
+        android:clipToPadding="true"/>
     <TextView
         android:id="@+id/tvShowModel"
         android:layout_width="wrap_content"
