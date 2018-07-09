@@ -51,5 +51,9 @@ dependencies {
     //enventbus
     implementation 'org.greenrobot:eventbus:3.1.1'
     //utilTools
+    implementation "com.github.vondear.RxTool:RxKit:v2.0.4"
     implementation 'com.blankj:utilcode:1.17.0'
+    implementation "com.github.vondear.RxTool:RxUI:v2.0.4"
+    //侧标兰
+    implementation 'com.specyci:residemenu:1.6'
 }

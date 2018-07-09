@@ -4,10 +4,11 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import com.blankj.utilcode.util.BarUtils
+import com.example.administrator.pyx.base.BaseClickListener
+import com.vondear.rxtool.RxBarTool
 import org.greenrobot.eventbus.EventBus
 
-abstract class BaseAppActivity: BaseActivity() {
+abstract class BaseAppActivity: BaseActivity() , BaseClickListener {
 
     override fun onStartActivity(bundle: Bundle?) {
         setContentView(getActivityLayout())
@@ -48,11 +49,11 @@ abstract class BaseAppActivity: BaseActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) {
-            BarUtils.setStatusBarAlpha(this,0)
+            RxBarTool.setTransparentStatusBar(this)
         }
     }
 
     private fun setTitleColor() {
-        BarUtils.setStatusBarAlpha(this,0)
+        RxBarTool.setTransparentStatusBar(this)
     }
 }

@@ -10,7 +10,7 @@ import com.example.administrator.pyx.service.AppBroadcastServe.NetType.NET_BROAD
 import com.example.administrator.pyx.service.AppBroadcastServe.NetType.NET_KEY
 
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity()  {
     var mContext: AppCompatActivity? = null
     private var isOnPause = false
     private var broadcastReceiver: BroadcastReceiver? = null

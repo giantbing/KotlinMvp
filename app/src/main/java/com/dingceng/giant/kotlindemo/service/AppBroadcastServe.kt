@@ -10,9 +10,9 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.IBinder
-import com.blankj.utilcode.util.NetworkUtils
 import com.example.administrator.pyx.service.AppBroadcastServe.NetType.NET_BROADCAST
 import com.example.administrator.pyx.service.AppBroadcastServe.NetType.NET_KEY
+import com.vondear.rxtool.RxNetTool
 
 @SuppressLint("Registered")
 /**
@@ -46,7 +46,7 @@ class AppBroadcastServe : Service() {
             val action = intent!!.action
             if (action == ConnectivityManager.CONNECTIVITY_ACTION) {
 
-                val isNet = NetworkUtils.isConnected()
+                val isNet = RxNetTool.ping()
                 val netWorkIntent = Intent(NET_BROADCAST)
                 netWorkIntent.putExtra(NET_KEY, isNet)
                 sendBroadcast(netWorkIntent)

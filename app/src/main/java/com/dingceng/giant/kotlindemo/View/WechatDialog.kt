@@ -14,7 +14,6 @@ import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatDialogFragment
 import android.text.TextUtils
 import android.widget.Toast
-import com.blankj.utilcode.util.BarUtils
 import com.dingceng.giant.kotlindemo.Base.BaseDialogFragment
 import com.dingceng.giant.kotlindemo.Consts
 
@@ -23,7 +22,6 @@ class WechatDialog : BaseDialogFragment() {
     override fun getLayout(): Int = R.layout.wechat_dialog
 
     override fun initData(bundle: Bundle?) {
-        BarUtils.setStatusBarAlpha(activity as Activity,0)
         val content = arguments?.get("content")
         (content as? String)?.let {
             setData(it)

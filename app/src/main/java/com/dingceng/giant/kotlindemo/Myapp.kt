@@ -1,9 +1,9 @@
 package com.dingceng.giant.kotlindemo
 
 import android.app.Application
-import com.blankj.utilcode.util.Utils
 import com.dingceng.giant.kotlindemo.Event.ErrorEvent
 import com.dingceng.giant.kotlindemo.Util.ToastUtil
+import com.vondear.rxtool.RxTool
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -13,7 +13,7 @@ class Myapp() : Application() {
     override fun onCreate() {
         super.onCreate()
         EventBus.getDefault().register(this)
-        Utils.init(this)
+        RxTool.init(this)
     }
 
     override fun onTerminate() {
